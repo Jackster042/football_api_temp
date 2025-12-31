@@ -11,3 +11,6 @@ count.txt
 .output
 .vinxi
 todos.json
+app.config.timestamp_*.js
+build-error.log
+
