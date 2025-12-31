@@ -12,12 +12,5 @@
   "git": true,
   "version": 1,
   "framework": "react-cra",
-  "chosenAddOns": [
-    "eslint",
-    "cloudflare",
-    "start",
-    "neon",
-    "drizzle",
-    "shadcn"
-  ]
+  "chosenAddOns": ["eslint", "cloudflare", "start", "neon", "drizzle", "shadcn"]
 }

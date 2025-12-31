@@ -1,7 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "tanstack-start-app",
-  "compatibility_date": "2025-09-02",
+  "name": "footbal-api",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2024-12-01",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry"
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "2a8d9e315e8446b9a69bb0550de0f080"
+    }
+  ]
 }

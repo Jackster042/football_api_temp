@@ -1,13 +1,13 @@
 import { neon } from '@neondatabase/serverless'
 
-let client: ReturnType<typeof neon>
+let client: ReturnType<typeof neon> | undefined
 
 export async function getClient() {
-  if (!process.env.VITE_DATABASE_URL) {
+  if (!process.env.DATABASE_URL) {
     return undefined
   }
   if (!client) {
-    client = await neon(process.env.VITE_DATABASE_URL!)
+    client = await neon(process.env.DATABASE_URL)
   }
   return client
 }

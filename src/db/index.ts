@@ -1,5 +1,24 @@
-import { drizzle } from 'drizzle-orm/node-postgres'
+import { drizzle } from 'drizzle-orm/postgres-js'
+import postgres from 'postgres'
 
 import * as schema from './schema.ts'
 
-export const db = drizzle(process.env.DATABASE_URL!, { schema })
+interface CloudflareEnv {
+  HYPERDRIVE?: {
+    connectionString: string
+  }
+}
+
+export const createDbClient = (env?: CloudflareEnv) => {
+  const url = env?.HYPERDRIVE?.connectionString || process.env.DATABASE_URL
+
+  if (!url) {
+    throw new Error('No database connection string found')
+  }
+
+  const client = postgres(url, {
+    prepare: false,
+    ssl: 'require',
+  })
+  return drizzle(client, { schema })
+}
